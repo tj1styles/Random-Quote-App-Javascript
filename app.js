@@ -7,9 +7,10 @@ let heartBtn = document.getElementById("heartBtn")
 let quoteParagraph = document.getElementById("quoteP")
 let authorHead = document.getElementById("author")
 
-quoteBtn.addEventListener('click',()=>{
-    getApi()
-})
+
+// quoteBtn.addEventListener('click',()=>{
+//     getApi()
+// })
 
 function getApi(){
     let url = 'https://type.fit/api/quotes'
@@ -24,3 +25,19 @@ function getApi(){
        console.log(items)
     })
 }
+
+let mins = 1
+let time = mins * 60
+function setTimer(){
+    let Smin = Math.floor(time/60)
+    let Ssec = time % 60
+
+    time++
+    if(Ssec ==10 || Ssec==20 || Ssec ==30 || Ssec ==40 || Ssec ==50 || Ssec==60 ){
+        getApi()
+    }
+    
+
+
+}
+setInterval(setTimer, 1000)
